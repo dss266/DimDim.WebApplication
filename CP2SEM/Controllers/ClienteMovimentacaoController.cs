@@ -31,8 +31,11 @@ namespace CP2SEM.Controllers
         // GET: ClienteMovimentacaoController/Create
         public ActionResult Create()
         {
-            var clientes= clienteDao.GetAll().ToList();
-            var movimentacao = movimentacaoDao.GetAll().ToList();
+            clienteDao = new ClienteDAO();
+            movimentacaoDao = new MovimentacaoDAO();
+
+            var clientes= clienteDao.GetAll()?.ToList();
+            var movimentacao = movimentacaoDao.GetAll()?.ToList();
 
             ViewBag.DropCliente = clientes;
             ViewBag.DropMovimentacao = movimentacao;
@@ -49,13 +52,18 @@ namespace CP2SEM.Controllers
             {
                 ClienteMovimentacao clienteMovimentacao = new ClienteMovimentacao();
 
-                clienteMovimentacao.IdCliente = Convert.ToInt32(collection["IdCliente"]);
-                clienteMovimentacao.IdMovimentacao = Convert.ToInt32(collection["IdMovimentacao"]) ;
                 
-                dao = new ClienteMovimentacaoDAO();
-                dao.Add(clienteMovimentacao);
+                if (Convert.ToInt32(collection["IdCliente"])!=0 && Convert.ToInt32(collection["IdMovimentacao"])!=0)
+                {
+                    clienteMovimentacao.IdCliente = Convert.ToInt32(collection["IdCliente"]);
+                    clienteMovimentacao.IdMovimentacao = Convert.ToInt32(collection["IdMovimentacao"]);
 
-                return RedirectToAction(nameof(Index));
+                    dao = new ClienteMovimentacaoDAO();
+                    dao.Add(clienteMovimentacao);
+                    return RedirectToAction(nameof(Index));
+                }
+
+                return View();
             }
             catch
             {
