@@ -71,8 +71,8 @@ namespace CP2SEM.Controllers
             }
         }
 
-        // GET: ClienteMovimentacaoController/Edit/5
-        public ActionResult Edit(int id)
+        // GET: ClienteMovimentacaoController/Editar/5
+        public ActionResult Editar(int id)
         {
             dao = new ClienteMovimentacaoDAO();
 
@@ -81,10 +81,10 @@ namespace CP2SEM.Controllers
             return View(clienteMovimentação);
         }
 
-        // POST: ClienteMovimentacaoController/Edit/5
+        // POST: ClienteMovimentacaoController/Editar/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
+        public ActionResult Editar(int id, IFormCollection collection)
         {
             try
             {

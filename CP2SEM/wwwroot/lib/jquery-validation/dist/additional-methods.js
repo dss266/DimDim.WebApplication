@@ -317,9 +317,9 @@ $.validator.addMethod( "cpfBR", function( value ) {
 
 }, "Please specify a valid CPF number" );
 
-// https://jqueryvalidation.org/creditcard-method/
+// https://jqueryvalidation.org/crEditarcard-method/
 // based on https://en.wikipedia.org/wiki/Luhn_algorithm
-$.validator.addMethod( "creditcard", function( value, element ) {
+$.validator.addMethod( "crEditarcard", function( value, element ) {
 	if ( this.optional( element ) ) {
 		return "dependency-mismatch";
 	}
@@ -337,7 +337,7 @@ $.validator.addMethod( "creditcard", function( value, element ) {
 	value = value.replace( /\D/g, "" );
 
 	// Basing min and max length on
-	// https://developer.ean.com/general_info/Valid_Credit_Card_Types
+	// https://developer.ean.com/general_info/Valid_CrEditar_Card_Types
 	if ( value.length < 13 || value.length > 19 ) {
 		return false;
 	}
@@ -356,13 +356,13 @@ $.validator.addMethod( "creditcard", function( value, element ) {
 	}
 
 	return ( nCheck % 10 ) === 0;
-}, "Please enter a valid credit card number." );
+}, "Please enter a valid crEditar card number." );
 
-/* NOTICE: Modified version of Castle.Components.Validator.CreditCardValidator
+/* NOTICE: Modified version of Castle.Components.Validator.CrEditarCardValidator
  * Redistributed under the the Apache License 2.0 at http://www.apache.org/licenses/LICENSE-2.0
  * Valid Types: mastercard, visa, amex, dinersclub, enroute, discover, jcb, unknown, all (overrides all other settings)
  */
-$.validator.addMethod( "creditcardtypes", function( value, element, param ) {
+$.validator.addMethod( "crEditarcardtypes", function( value, element, param ) {
 	if ( /[^0-9\-]+/.test( value ) ) {
 		return false;
 	}
@@ -426,7 +426,7 @@ $.validator.addMethod( "creditcardtypes", function( value, element, param ) {
 		return true;
 	}
 	return false;
-}, "Please enter a valid credit card number." );
+}, "Please enter a valid crEditar card number." );
 
 /**
  * Validates currencies with any given symbols by @jameslouiz
