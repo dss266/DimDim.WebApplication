@@ -58,7 +58,7 @@ namespace CP2SEM.Controllers
         }
 
         // GET: Cliente/Editar/5
-        public ActionResult Editar(int id)
+        public ActionResult Edit(int id)
         {
             dao = new ClienteDAO();
 
@@ -70,7 +70,7 @@ namespace CP2SEM.Controllers
         // POST: Cliente/Editar/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Editar(int id, IFormCollection collection)
+        public ActionResult Edit(int id, IFormCollection collection)
         {
             try
             {
