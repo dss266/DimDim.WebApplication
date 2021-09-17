@@ -15,7 +15,7 @@ namespace CP2SEM.DAO.Context
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("Server = tcp:sqlserver-rm86327.database.windows.net, 1433; Initial Catalog = dimdim; Persist Security Info = False; User ID = adminSql; Password = Devops@fiap2021; MultipleActiveResultSets = False; Encrypt = True; TrustServerCertificate = False; Connection Timeout = 30; ");
+            optionsBuilder.UseSqlServer("Server=tcp:sqlserver-rm86327.database.windows.net,1433;Initial Catalog=dimdim;Persist Security Info=False;User ID=admsql;Password=devops@fiap21;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
         }
     }
 }
